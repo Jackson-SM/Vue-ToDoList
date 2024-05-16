@@ -1,25 +1,49 @@
-<script setup lang="ts">
-
+<script lang="ts" setup>
+const props = defineProps<{
+    primary?: boolean;
+}>();
 </script>
 
 <template>
-  <button class="button"><slot></slot></button>
+    <button :class="{ primary: props.primary }" class="button">
+        <slot></slot>
+    </button>
 </template>
 
 <style scoped>
-  .button {
+.button {
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 0.25rem;
     background-color: var(--background-foreground);
     color: var(--text);
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     cursor: pointer;
 
-    transition: background-color 0.1s ease;
-  }
+    display: flex;
+    gap: 10px;
+    align-items: center;
 
-  .button:hover {
+    margin: 10px;
+
+    transition: background-color 0.15s ease;
+}
+
+.button:hover {
     background-color: var(--background-hover);
-  }
+}
+
+.button.primary {
+    background-color: var(--primary);
+}
+
+.button.primary:hover {
+    background-color: var(--primary-hover);
+}
 </style>
+
+<script lang="ts">
+export default {
+    name: "ButtonCustom",
+};
+</script>
