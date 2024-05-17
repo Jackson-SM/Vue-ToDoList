@@ -1,42 +1,22 @@
 <script lang="ts" setup>
-import ButtonCustom from "./components/Button.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import CardTask from "./components/CardTask.vue";
 import NavbarComponent from "./components/Navbar.vue";
-import { ref } from "vue";
-import { TaskProps } from "./components/types/TaskProps.ts";
+import ButtonModal from "./components/ButtonModal.vue";
+import useTasks from "./composables/useTasks.ts";
 
-const tasks = ref<TaskProps[]>([
-    {
-        id: 1,
-        title: "Geometry",
-        description: "studying geometry for the test.",
-        tags: ["studies", "math"],
-    },
-    {
-        id: 2,
-        title: "GoLang",
-        description: "doing some projets using golang and vuejs.",
-        tags: ["programming", "golang"],
-    },
-    {
-        id: 3,
-        title: "Python",
-        description: "doing some projets using python and vuejs.",
-        tags: ["programming", "python"],
-    },
-]);
+const { tasks } = useTasks();
 </script>
 
 <template>
     <NavbarComponent />
     <main>
         <div class="top">
-            <ButtonCustom primary
+            <ButtonModal primary
                 >Nova Tarefa
                 <FontAwesomeIcon :icon="faPlus" />
-            </ButtonCustom>
+            </ButtonModal>
         </div>
         <section class="card-section">
             <h2>Tasks</h2>

@@ -7,25 +7,21 @@
     --background-hover: #383838;
 
     --text: #fcfcfc;
-    --text-foreground: #a3a3a3;
+    --text-foreground: rgb(108, 108, 108);
 
     --primary: #8d00e1;
     --primary-hover: #7700bd;
 
+    --secondary: #e17100;
+    --secondary-hover: #c15b00;
+
     --card: #1f1f1f;
     --card-hover: #2a2a2a;
 
-    --border: #2a2a2a;
+    --border: #363636;
 
     --muted: rgba(163, 163, 163, 0.22);
-    --muted-blue: rgba(0, 178, 255, 0.22);
-    --muted-red: rgba(255, 69, 69, 0.22);
-    --muted-green: rgba(102, 255, 102, 0.22);
-    --muted-yellow: rgba(255, 255, 0, 0.22);
-    --muted-purple: rgba(128, 0, 128, 0.22);
-    --muted-cyan: rgba(116, 255, 255, 0.22);
-    --muted-orange: rgba(255, 165, 0, 0.22);
-    --muted-pink: rgba(255, 192, 203, 0.22);
+    --muted-primary: rgba(161, 0, 255, 0.13);
 }
 
 * {

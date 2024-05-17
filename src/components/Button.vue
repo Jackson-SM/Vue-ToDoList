@@ -23,6 +23,7 @@ const props = defineProps<{
     display: flex;
     gap: 10px;
     align-items: center;
+    justify-content: center;
 
     margin: 10px;
 
