@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 const props = defineProps<{
-    primary?: boolean;
+    variant?: "primary" | "destructive";
 }>();
 </script>
 
 <template>
-    <button :class="{ primary: props.primary }" class="button">
+    <button :class="props.variant" class="button">
         <slot></slot>
     </button>
 </template>
@@ -40,6 +40,14 @@ const props = defineProps<{
 
 .button.primary:hover {
     background-color: var(--primary-hover);
+}
+
+.button.destructive {
+    background-color: var(--destructive);
+}
+
+.button.destructive:hover {
+    background-color: var(--destructive-hover);
 }
 </style>
 

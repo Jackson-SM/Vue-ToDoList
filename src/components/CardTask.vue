@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import ButtonCircle from "./ButtonCircle.vue";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import BadgeComponent from "./Badge.vue";
+import ButtonCircle from "./ButtonCircle.vue";
 import { TaskProps } from "./types/TaskProps.ts";
 
 const props = defineProps<{

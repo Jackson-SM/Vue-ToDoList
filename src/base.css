@@ -16,12 +16,20 @@
     --secondary-hover: #c15b00;
 
     --card: #1f1f1f;
+    --card-foreground: #d0d0d0;
     --card-hover: #2a2a2a;
 
     --border: #363636;
+    --radius: 0.5rem;
 
     --muted: rgba(163, 163, 163, 0.22);
     --muted-primary: rgba(161, 0, 255, 0.13);
+
+    --accent: #484848;
+    --accent-hover: #5a5a5a;
+
+    --destructive: #ff0000;
+    --destructive-hover: #b60000;
 }
 
 * {

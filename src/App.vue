@@ -1,10 +1,11 @@
 <script lang="ts" setup>
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import ButtonModal from "./components/ButtonModal.vue";
 import CardTask from "./components/CardTask.vue";
 import NavbarComponent from "./components/Navbar.vue";
-import ButtonModal from "./components/ButtonModal.vue";
 import useTasks from "./composables/useTasks.ts";
+import DropdownOptionsTask from "./components/DropdownOptionsTask.vue";
 
 const { tasks } = useTasks();
 </script>
@@ -13,11 +14,12 @@ const { tasks } = useTasks();
     <NavbarComponent />
     <main>
         <div class="top">
-            <ButtonModal primary
+            <ButtonModal variant="primary"
                 >Nova Tarefa
                 <FontAwesomeIcon :icon="faPlus" />
             </ButtonModal>
         </div>
+        <DropdownOptionsTask />
         <section class="card-section">
             <h2>Tasks</h2>
             <div class="card-container">
