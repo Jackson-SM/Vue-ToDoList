@@ -1,43 +1,25 @@
 <script lang="ts" setup>
-import ButtonCustom from "./components/Button.vue";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import ButtonModal from "./components/ButtonModal.vue";
 import CardTask from "./components/CardTask.vue";
 import NavbarComponent from "./components/Navbar.vue";
-import { ref } from "vue";
-import { TaskProps } from "./components/types/TaskProps.ts";
+import useTasks from "./composables/useTasks.ts";
+import DropdownOptionsTask from "./components/DropdownOptionsTask.vue";
 
-const tasks = ref<TaskProps[]>([
-    {
-        id: 1,
-        title: "Geometry",
-        description: "studying geometry for the test.",
-        tags: ["studies", "math"],
-    },
-    {
-        id: 2,
-        title: "GoLang",
-        description: "doing some projets using golang and vuejs.",
-        tags: ["programming", "golang"],
-    },
-    {
-        id: 3,
-        title: "Python",
-        description: "doing some projets using python and vuejs.",
-        tags: ["programming", "python"],
-    },
-]);
+const { tasks } = useTasks();
 </script>
 
 <template>
     <NavbarComponent />
     <main>
         <div class="top">
-            <ButtonCustom primary
+            <ButtonModal variant="primary"
                 >Nova Tarefa
                 <FontAwesomeIcon :icon="faPlus" />
-            </ButtonCustom>
+            </ButtonModal>
         </div>
+        <DropdownOptionsTask />
         <section class="card-section">
             <h2>Tasks</h2>
             <div class="card-container">
