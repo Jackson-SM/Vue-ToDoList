@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import ButtonCustom from "./Button.vue";
 import DropDownMenu from "./DropdownMenu.vue";
-import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
+import ButtonCircle from "./ButtonCircle.vue";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 </script>
 
 <template>
@@ -11,10 +12,9 @@ import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
         </template>
         <template #content>
             <div>
-                <ButtonCustom variant="destructive">
-                    Delete
-                    <FontAwesomeIcon :icon="faTrashCan" />
-                </ButtonCustom>
+                <ButtonCircle>
+                    <FontAwesomeIcon :icon="faTrash" />
+                </ButtonCircle>
             </div>
         </template>
     </DropDownMenu>
