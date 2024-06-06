@@ -31,7 +31,7 @@ const toggleDropdown = () => {
     pointer-events: none;
 
     position: absolute;
-    min-width: 160px;
+    
     padding: 1rem;
 
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
@@ -42,6 +42,9 @@ const toggleDropdown = () => {
     z-index: 1;
 
     transition: all ease 0.3s;
+
+    display: flex;
+    gap: 1rem;
 }
 
 .dropdown-content.is_open {

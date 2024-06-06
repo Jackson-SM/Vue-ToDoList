@@ -19,7 +19,6 @@ const { tasks } = useTasks();
                 <FontAwesomeIcon :icon="faPlus" />
             </ButtonModal>
         </div>
-        <DropdownOptionsTask />
         <section class="card-section">
             <h2>Tasks</h2>
             <div class="card-container">
