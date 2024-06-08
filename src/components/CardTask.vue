@@ -7,14 +7,14 @@ const props = defineProps<{
     task: TaskProps;
 }>();
 
-const { title, description, tags } = props.task;
+const { id, title, description, tags } = props.task;
 </script>
 
 <template>
     <div class="card">
         <header>
             <h3 class="title">{{ title }}</h3>
-            <DropdownOptionsTask />
+            <DropdownOptionsTask :id="id" />
         </header>
         <div class="content">
             <p class="description">{{ description }}</p>

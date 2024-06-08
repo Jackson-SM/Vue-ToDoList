@@ -21,7 +21,6 @@ const toggleDropdown = () => {
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
     position: relative;
-    display: inline-block;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -31,7 +30,7 @@ const toggleDropdown = () => {
     pointer-events: none;
 
     position: absolute;
-    
+
     padding: 1rem;
 
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);

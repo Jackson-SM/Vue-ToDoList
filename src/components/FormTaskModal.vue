@@ -12,7 +12,7 @@ import BadgeComponent from "./Badge.vue";
         <div class="form-container">
             <h2 class="title-form">Create new Task</h2>
             <form action="/" @submit.capture="submitForm" @submit.prevent>
-                <InputComponent type="text" name="title" v-model="title" placeholder="Title" />
+                <InputComponent type="text" name="title" v-model="title" placeholder="Title" :value="title" />
                 <textarea
                     name="description"
                     v-model="description"
@@ -22,7 +22,7 @@ import BadgeComponent from "./Badge.vue";
                     cols="20"
                 />
                 <div class="input_field_tags">
-                    <InputComponent type="text" name="tags" v-model="tagInput" placeholder="Tag" />
+                    <InputComponent type="text" name="tagInput" v-model="tagInput" placeholder="Tag" />
                     <ButtonCustom @click="addTag(tagInput)" type="button">
                         <FontAwesomeIcon :icon="faPlus" />
                     </ButtonCustom>
@@ -33,7 +33,7 @@ import BadgeComponent from "./Badge.vue";
                     </BadgeComponent>
                 </div>
                 <ButtonCustom primary
-                    >Add task
+                    >{{ task ? "Update Task" : "Create Task" }}
                     <FontAwesomeIcon :icon="faPlus" />
                 </ButtonCustom>
                 <p v-if="error.hasError">{{ error.message }}</p>
@@ -101,8 +101,9 @@ import BadgeComponent from "./Badge.vue";
 
 <script lang="ts">
 import useTasks from "../composables/useTasks.ts";
+import { TaskProps } from "./types/TaskProps.ts";
 
-const { createNewTask } = useTasks();
+const { createNewTask, updateTask } = useTasks();
 
 type ErrorFormType = { hasError: boolean; message: string };
 
@@ -113,6 +114,20 @@ export default {
         ButtonCustom,
         InputComponent,
         Modal,
+    },
+    props: {
+        task: {
+            type: Object as () => TaskProps,
+            default: null,
+        },
+    },
+    mounted() {
+        if (this.task) {
+            this.title = this.task.title;
+            this.description = this.task.description;
+            this.tags = this.task.tags;
+            console.log(this.task.title);
+        }
     },
     data() {
         return {
@@ -132,13 +147,22 @@ export default {
                 };
                 return;
             }
-            createNewTask({
+
+            const taskSubmit = {
                 title: this.title,
                 description: this.description,
                 tags: this.tags,
-            });
+            };
+
+            if (this.task) {
+                updateTask(this.task.id, taskSubmit);
+                return;
+            }
+
+            createNewTask(taskSubmit);
         },
         addTag(tag: string) {
+            console.log(tag);
             const tagExists = this.tags.find((t) => t === tag);
             if (tagExists) {
                 this.error = {

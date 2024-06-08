@@ -5,7 +5,6 @@ import ButtonModal from "./components/ButtonModal.vue";
 import CardTask from "./components/CardTask.vue";
 import NavbarComponent from "./components/Navbar.vue";
 import useTasks from "./composables/useTasks.ts";
-import DropdownOptionsTask from "./components/DropdownOptionsTask.vue";
 
 const { tasks } = useTasks();
 </script>
