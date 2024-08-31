@@ -1,24 +1,20 @@
 <script setup lang="ts">
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import BadgeComponent from "./Badge.vue";
-import ButtonCircle from "./ButtonCircle.vue";
+import DropdownOptionsTask from "./DropdownOptionsTask.vue";
 import { TaskProps } from "./types/TaskProps.ts";
 
 const props = defineProps<{
     task: TaskProps;
 }>();
 
-const { title, description, tags } = props.task;
+const { id, title, description, tags } = props.task;
 </script>
 
 <template>
     <div class="card">
         <header>
             <h3 class="title">{{ title }}</h3>
-            <ButtonCircle>
-                <FontAwesomeIcon :icon="faPlus" />
-            </ButtonCircle>
+            <DropdownOptionsTask :id="id" />
         </header>
         <div class="content">
             <p class="description">{{ description }}</p>

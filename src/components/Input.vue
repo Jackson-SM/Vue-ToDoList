@@ -1,11 +1,14 @@
-<script lang="ts">
-export default {
-    name: "InputComponent",
-};
+<script lang="ts" setup>
+const props = defineProps(["modelValue"]);
+const emit = defineEmits(["update:modelValue"]);
 </script>
 
 <template>
-    <input class="input" @input="$emit('update:modelValue', $event.target.value)" />
+    <input
+        class="input"
+        :value="props.modelValue"
+        @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+    />
 </template>
 
 <style scoped>
@@ -25,3 +28,9 @@ export default {
     border: 1px solid var(--primary);
 }
 </style>
+
+<script lang="ts">
+export default {
+    name: "InputComponent",
+};
+</script>

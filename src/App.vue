@@ -5,7 +5,6 @@ import ButtonModal from "./components/ButtonModal.vue";
 import CardTask from "./components/CardTask.vue";
 import NavbarComponent from "./components/Navbar.vue";
 import useTasks from "./composables/useTasks.ts";
-import DropdownOptionsTask from "./components/DropdownOptionsTask.vue";
 
 const { tasks } = useTasks();
 </script>
@@ -19,7 +18,6 @@ const { tasks } = useTasks();
                 <FontAwesomeIcon :icon="faPlus" />
             </ButtonModal>
         </div>
-        <DropdownOptionsTask />
         <section class="card-section">
             <h2>Tasks</h2>
             <div class="card-container">
