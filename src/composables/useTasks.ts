@@ -9,6 +9,18 @@ const tasks = reactive<TaskProps[]>([
         description: "Description of Task 1",
         tags: ["tag1", "tag2"],
     },
+    {
+        id: 2,
+        title: "Task 2",
+        description: "Description of Task 1",
+        tags: ["tag1", "tag2"],
+    },
+    {
+        id: 3,
+        title: "Task 3",
+        description: "Description of Task 1",
+        tags: ["tag1", "tag2"],
+    },
 ]);
 
 const createNewTask = (newTask: Omit<TaskProps, "id">) => {
@@ -24,8 +36,7 @@ const deleteTask = (id: number) => {
 
 const updateTask = (id: number, updatedTask: Omit<TaskProps, "id">) => {
     const index = tasks.findIndex((task) => task.id === id);
-    console.log(updatedTask);
-    tasks[index] = { ...tasks[index], ...updatedTask };
+    tasks[index] = { id, ...updatedTask };
 };
 
 export default function useTasks() {

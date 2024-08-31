@@ -19,6 +19,8 @@ const isActive = ref(false);
 provide("isActive", isActive);
 
 const task = tasks.find((task) => task.id === id);
+
+console.log(task);
 </script>
 
 <template>
